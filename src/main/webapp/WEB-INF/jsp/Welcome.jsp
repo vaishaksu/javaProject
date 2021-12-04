@@ -79,6 +79,16 @@
 			}
 			%>
 
+			<div class="mt-5">
+				<h3 class="mb-3 text-success">GROUP MEMBERS - Date: 04-12-2021</h3>
+				<div>
+					<h6>1. Vaishak Surendran (c0785212)</h6>
+					<h6>2. Tom Edison C0785563</h6>
+					<h6>3. Francis George (C0789818)</h6>
+					<h6>4. Manpreet Kaur (c0771598)</h6>
+					<h6>5. Rupinderbir kaur (C0792091)</h6>
+				</div>
+			</div>
 		</div>
 
 	</div>

@@ -72,7 +72,7 @@
 				</div>
 
 				<div class="form-group">
-					<label>TRANFER TO: </label> <b>CA000${yourAccounts.idaccounts}000IN</b>
+					<label>TRANSFER TO: </label> <b>CA000${yourAccounts.idaccounts}000IN</b>
 					- <b>$${yourAccounts.balance}</b>
 				</div>
 

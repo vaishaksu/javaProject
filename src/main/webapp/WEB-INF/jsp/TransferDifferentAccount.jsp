@@ -65,7 +65,7 @@
 			<form:form action="PostTransaction" method="post"
 				modelAttribute="newTransaction">
 				<div class="form-group">
-					<label> TRANFER FROM: </label> <b>CA000${yourAccounts.idaccounts}000IN</b>
+					<label> TRANSFER FROM: </label> <b>CA000${yourAccounts.idaccounts}000IN</b>
 					- <b>$${yourAccounts.balance}</b>
 				</div>
 
