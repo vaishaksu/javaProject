@@ -40,14 +40,16 @@ public class UserController {
 		System.out.println("IMPLEME ******: " + user.getUsername());
 		UserClass_A userValidate = userService.validateUser(user);
 		System.out.println("userValidate: " + userValidate);
+		session = request.getSession();
 		if (userValidate != null) { // SUCCESS
 			String lastname = userValidate.getLastname() != null ? userValidate.getLastname() : "";
 			fullname = userValidate.getFname() + ' ' + lastname;
-			session = request.getSession();
 			session.setAttribute("username", userValidate.getUsername());
 			session.setAttribute("fullname", fullname);
+			session.removeAttribute("error");
 			return "redirect:/Welcome";			 
 		} else { // FAILURE
+			session.setAttribute("error", "Username or password doesn't match. Please Try again!");
 			return "redirect:/Login";
 		}
 	}
@@ -70,6 +72,7 @@ public class UserController {
 			session = request.getSession();
 			session.setAttribute("username", newuser.getUsername());
 			session.setAttribute("fullname", fullname);
+			session.removeAttribute("error");
 			return "redirect:/Welcome";			
 		} else { // FAILURE
 			return "redirect:/Register";

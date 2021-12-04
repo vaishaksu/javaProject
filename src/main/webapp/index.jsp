@@ -20,14 +20,37 @@
 <title>Pay bill</title>
 </head>
 <body>
-	<h2>Hello World!</h2>
-	<div>
-		<div>
-			<a href="Login"> Login </a>
-		</div>
-		<div>
-			<a href="Register">Register</a>
-		</div>
+	<header>
+		<nav
+			class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+			<div class="container-fluid">
+				<a class="navbar-brand">Banking</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target=".navbar-collapse"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div
+					class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+					<ul class="navbar-nav flex-grow-1">
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a class="nav-link text-light" href="Register"> Sign
+								Up</a></li> &nbsp; &nbsp; &nbsp; &nbsp;
+						<li><a class="nav-link text-light" href="Login">Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		<h2>
+			<center>Welcome to our Banking App </center>
+		</h2>
+		
+
 	</div>
 </body>
 </html>

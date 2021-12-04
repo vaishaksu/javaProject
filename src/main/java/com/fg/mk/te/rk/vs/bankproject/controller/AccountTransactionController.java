@@ -72,11 +72,7 @@ public class AccountTransactionController {
 
 	@RequestMapping(value="/ShowAccount/DepositToSameAccount/{id}", method = RequestMethod.GET)
 	public String DepositToSameAccount(@PathVariable int id, Model m, HttpServletRequest request) {
-		//		session = request.getSession();
 		m.addAttribute("command", new TransactionClass_A());
-		//		String uname = (String) session.getAttribute("username");
-		//		List<AccountClass_A> accounts = accountTransactionService.getListOtherAccountOfYours(id);
-		//		m.addAttribute("listAccounts", accounts);
 		return "DepositToSameAccount";
 	}
 

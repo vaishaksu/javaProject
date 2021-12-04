@@ -6,31 +6,91 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>VIEW ALL ACCOUNTS</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+<title>Show Current Account</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
 	crossorigin="anonymous">
 <script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
 	crossorigin="anonymous"></script>
 </head>
+<title>Transfer money to different accounts</title>
+</head>
 <body>
-	<form:form action="PostTransaction" method="post" modelAttribute="newTransaction">
-		TRANFER FROM: 
-		 <b>CA000${yourAccounts.idaccounts}000IN</b> - <b>$${yourAccounts.balance}</b>
-		<form:hidden path="senderAccountId" value="${yourAccounts.idaccounts}" />
-		<label> TRANSFER TO:</label> <select name="receiverAccountId">
-				<c:forEach var="account" items="${listYourOtherAccounts}">
-					<option value="${account.idaccounts}">CA000${account.idaccounts}000IN
-						- $${account.balance}</option>
-				</c:forEach>
-		</select>
-		Transfer Amount: <form:input type="number" path="transactionsAmount"/>
-		
-		<input type="submit" class="btn btn-primary" value="Transfer"/>
-	</form:form>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<a class="navbar-brand" style="display: flex;">Banking App</a>
+				</div>
+				<div>
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0 nav-user">
+						<li class="nav-item"><a class="nav-link" href="#"
+							style="display: flex;"> <i class="fas fa-shopping-cart"
+								style="color: #fff; font-size: 20px;"></i></a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> <i class="fas fa-user-circle"
+								style="color: #fff; font-size: 20px;"></i> &nbsp; Hi, <%=session.getAttribute("fullname")%></b>!
+						</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href='ViewProfile'>Your Profile</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="Logout">Logout</a>
+							</div></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container mt-5 col-md-4">
+		<h2 class="mb-5">
+			<center>Transfer money to different accountt</center>
+		</h2>
+
+		<div class="mb-3">
+			<form:form action="PostTransaction" method="post"
+				modelAttribute="newTransaction">
+				<div class="form-group">
+					<label> TRANFER FROM: </label> <b>CA000${yourAccounts.idaccounts}000IN</b>
+					- <b>$${yourAccounts.balance}</b>
+				</div>
+
+				<form:hidden path="senderAccountId"
+					value="${yourAccounts.idaccounts}" />
+				<div class="form-group">
+					<label> TRANSFER TO:</label> <select lass="form-select"
+						name="receiverAccountId">
+						<c:forEach var="account" items="${listYourOtherAccounts}">
+							<option value="${account.idaccounts}">CA000${account.idaccounts}000IN
+								- $${account.balance}</option>
+						</c:forEach>
+					</select>
+				</div>
+				<div class="form-group">
+					<label> Transfer Amount: </label>
+					<form:input class="form-control" type="number"
+						path="transactionsAmount" />
+
+				</div>
+				<input type="submit" class="btn btn-primary" value="Transfer" />
+			</form:form>
+
+
+		</div>
+	</div>
 </body>
 </html>
