@@ -21,41 +21,57 @@
 	<div class="container">
 		<h2>Register</h2>
 
-		<form:form method="post" action="RegisterVerfication" modelAttribute="newuser">
+		<form:form method="post" action="PostAddNewuserAccount"
+			modelAttribute="addExistingUserAccountAdmin">
 
 			<div class="form-group">
 				<label for="exampleInputEmail1">Username</label>
 				<form:input type="text" class="form-control" path="username"
 					aria-describedby="emailHelp" />
-			</div> <br/>
+			</div>
+			<br />
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label>
 				<form:input type="password" class="form-control"
 					id="exampleInputPassword1" path="password" />
-			</div> <br/>
+			</div>
+			<br />
 
 			<div class="form-group">
 				<label for="exampleFormControlSelect1">Gender</label>
-				
-				<form:select class="form-select" path="gender" items="${genderItems}"></form:select>
 
-			</div> <br/>
+				<form:select class="form-select" path="gender"
+					items="${genderItems}"></form:select>
+
+			</div>
+			<br />
 
 			<div class="form-group">
 				<label for="exampleInputEmail1">First Name</label>
 				<form:input type="text" class="form-control" path="fname"
-					aria-describedby="FirstNameHelp"  />
-			</div> <br/>
+					aria-describedby="FirstNameHelp" />
+			</div>
+			<br />
 			<div class="form-group">
 				<label for="exampleInputEmail1">Last Name</label>
 				<form:input type="text" class="form-control" path="lastname"
-					aria-describedby="LastNameHelp"  />
-			</div> <br/>
+					aria-describedby="LastNameHelp" />
+			</div>
+			<br />
 			<div class="form-group">
 				<label for="exampleInputEmail1">Email</label>
 				<form:input type="email" class="form-control" path="email"
-					aria-describedby="PhoneNumberHelp"  />
-			</div> <br/>
+					aria-describedby="PhoneNumberHelp" />
+			</div>
+			<br />
+
+
+			<div class="form-group">
+				<label for="exampleInputEmail1">Amount</label>
+				<form:input type="number" class="form-control" path="balance"
+					aria-describedby="balanceHelp" />
+			</div>
+			<br />
 
 			<button type="submit" class="btn btn-primary">Submit</button>
 		</form:form>

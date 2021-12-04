@@ -25,7 +25,8 @@
 	<div>
 		<a href="TransferDifferentAccount/${account.idaccounts}"
 			class="btn btn-info">Transfer Money to different account of yours
-			(withdraw)</a> <a href="DepositToSameAccount/${account.idaccounts}"
+			(withdraw)</a> 
+		<a href="DepositToSameAccount/${account.idaccounts}"
 			class="btn btn-info">Deposit money in the same account of yours</a>
 	</div>
 

@@ -4,6 +4,7 @@ public class AccountClass_A {
 	public int idaccounts;
 	public double balance ;
 	public int idusers;
+	public int accountclosed;
 	
 	public int getIdaccounts() {
 		return idaccounts;
@@ -22,5 +23,11 @@ public class AccountClass_A {
 	}
 	public void setIdusers(int idusers) {
 		this.idusers = idusers;
+	}
+	public int getAccountclosed() {
+		return accountclosed;
+	}
+	public void setAccountclosed(int accountclosed) {
+		this.accountclosed = accountclosed;
 	}
 }

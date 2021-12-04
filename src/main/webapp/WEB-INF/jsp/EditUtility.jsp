@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>VIEW ALL ACCOUNTS</title>
+<title>Add Utility</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -17,17 +17,25 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 </head>
-<title>Pay bill</title>
-</head>
 <body>
-	<h2>Hello World!</h2>
-	<div>
-		<div>
-			<a href="Login"> Login </a>
+	<form:form method="post" action="EditUitilitySave" modelAttribute="utility">
+		<form:hidden path="idutilities"/>
+		<div class="form-group">
+			<label for="exampleInputEmail1">Utility Name</label>
+			<form:input type="text" class="form-control" path="utilityName"
+				aria-describedby="emailHelp" />
 		</div>
-		<div>
-			<a href="Register">Register</a>
+		<br />
+
+
+		<div class="form-group">
+			<label for="exampleInputEmail1">Utility Price</label>
+			<form:input type="number" class="form-control" path="utilityPrice"
+				aria-describedby="utilityPriceHelp" />
 		</div>
-	</div>
+		<br />
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form:form>
 </body>
 </html>

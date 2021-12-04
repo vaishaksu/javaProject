@@ -41,7 +41,8 @@ public class UserController {
 		UserClass_A userValidate = userService.validateUser(user);
 		System.out.println("userValidate: " + userValidate);
 		if (userValidate != null) { // SUCCESS
-			fullname = userValidate.getFname() + ' ' + userValidate.getLastname();
+			String lastname = userValidate.getLastname() != null ? userValidate.getLastname() : "";
+			fullname = userValidate.getFname() + ' ' + lastname;
 			session = request.getSession();
 			session.setAttribute("username", userValidate.getUsername());
 			session.setAttribute("fullname", fullname);
@@ -64,7 +65,8 @@ public class UserController {
 		int register = userService.RegisterLogin(newuser);
 		System.out.println("userValidate: " + register);
 		if(register != 0) { // SUCCESS
-			fullname = newuser.getFname() + ' ' + newuser.getLastname();
+			String lastname = newuser.getLastname() != null ? newuser.getLastname() : "";
+			fullname = newuser.getFname() + ' ' + lastname;
 			session = request.getSession();
 			session.setAttribute("username", newuser.getUsername());
 			session.setAttribute("fullname", fullname);

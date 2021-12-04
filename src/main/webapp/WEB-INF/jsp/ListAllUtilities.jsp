@@ -17,30 +17,38 @@
 	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 	crossorigin="anonymous"></script>
 </head>
-<title>Insert title here</title>
+<title>List All Utilities</title>
 </head>
 <body>
 	WELCOME
 	<b><%=session.getAttribute("fullname")%></b>!
-	<a href="Logout" class="btn">Logout</a>
-
+	<div>
+		<a href="PayUtility" class="btn btn-info">Wanna pay a bill?</a>
+	</div>
 	<table border="2" width="70%" cellpadding="2">
 		<tr>
-			<th>Account Number</th>
-			<th>Balance</th>
+			<th>Utility Code</th>
+			<th>Utility Name</th>
+			<th>Utility Price</th>
+			<th>Government Utility Code</th>
+			<th>Actions</th>
 		</tr>
-		<c:forEach var="account" items="${listAccount}">
+		<c:forEach var="utility" items="${listUtilities}">
 			<tr>
-				<td><c:if test="${account.accountclosed == 1}">
-						<a href="ShowAccount/${account.idaccounts}"
-							class="btn btn-primary">CA000${account.idaccounts}000IN</a></td>
-				</c:if>
-				<c:if test="${account.accountclosed == 0}">
-					CA000${account.idaccounts}000IN				
-				</c:if>
-				<td>$${account.balance}</td>
+				<td>UTI000${utility.idutilities}600${utility.utilityName}00</td>
+				<td>${utility.utilityName}</td>
+				<td>$${utility.utilityPrice}</td>
+				<td>GOVT-${utility.utilityName}-UTI000${utility.idutilities}-MENT0007</td>
+				<td><a href="EditUtility/${utility.idutilities}"
+					class="btn btn-info">Edit</a> <a
+					href="DeleteUtility/${utility.idutilities}" class="btn btn-danger">Delete</a>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
+
+	<div>
+		<a href="Welcome" class="btn btn-dark"> <<--Back </a>
+	</div>
 </body>
 </html>

@@ -18,19 +18,16 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<form:form action="PostTransaction" method="post" modelAttribute="newTransaction">
-		TRANFER FROM: 
+	<form:form action="PostDepositTransaction" method="post"
+		modelAttribute="newTransaction">
+		Transfer Amount: <form:input type="number" path="transactionsAmount" />
+		TRANFER TO: 
 		 <b>CA000${yourAccounts.idaccounts}000IN</b> - <b>$${yourAccounts.balance}</b>
 		<form:hidden path="senderAccountId" value="${yourAccounts.idaccounts}" />
-		<label> TRANSFER TO:</label> <select name="receiverAccountId">
-				<c:forEach var="account" items="${listYourOtherAccounts}">
-					<option value="${account.idaccounts}">CA000${account.idaccounts}000IN
-						- $${account.balance}</option>
-				</c:forEach>
-		</select>
-		Transfer Amount: <form:input type="number" path="transactionsAmount"/>
-		
-		<input type="submit" class="btn btn-primary" value="Transfer"/>
+		<form:hidden path="receiverAccountId"
+			value="${yourAccounts.idaccounts}" />
+
+		<input type="submit" class="btn btn-primary" value="Transfer" />
 	</form:form>
 </body>
 </html>

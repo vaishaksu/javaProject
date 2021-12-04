@@ -21,12 +21,21 @@
 		<p>
 			WELCOME <b><%=session.getAttribute("fullname")%></b>!
 		</p>
+		<a href="Logout" class="btn">Logout</a>
 
-		<a href="Accounts" class="btn btn-secondary"> VIEW ALL ACCOUNTS OF YOURS </a> <a
-			href="Profile" class="btn btn-secondary"> VIEW YOUR PROFILE </a> <a
-			href="AddUtility" class="btn btn-secondary"> ADD UTILITY </a> <a
-			href="ListAllUtilities" class="btn btn-secondary"> LIST ALL
-			UTILITIES </a>
+		<%
+			String uname1 = (String)session.getAttribute("username");
+			if(!uname1.equals("admin")) {
+				out.print( "<a href='Accounts' class='btn btn-secondary'> VIEW ALL ACCOUNTS OF YOURS </a> <a href='ViewProfile' class='btn btn-secondary'> VIEW YOUR PROFILE </a> <a href='AddUtility' class='btn btn-secondary'> ADD UTILITY </a> <a href=ListAllUtilities' class='btn btn-secondary'>LIST ALL UTILITIES </a>");
+			}
+		%>
+
+		<%
+			String uname = (String)session.getAttribute("username");
+			if(uname.equals("admin")) {
+				out.print("<a href='ListAllUsers' class='btn btn-secondary'>View all Customer's Account</a>");					
+			}
+		%>
 	</div>
 </body>
 </html>
