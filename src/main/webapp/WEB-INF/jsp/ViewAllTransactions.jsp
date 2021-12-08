@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show Current Account</title>
+<title>View ALl your Transactions Details for the Account</title>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
 	integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
@@ -20,7 +20,6 @@
 	integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
 	crossorigin="anonymous"></script>
 </head>
-<title>Pay bill</title>
 </head>
 <body>
 	<header>
@@ -56,30 +55,43 @@
 			</div>
 		</nav>
 	</header>
-	<div class="container mt-5">
-		<h2 class="mb-5">
-			<center>Show Current Account</center>
+	<div class=" mt-5 ml-2 mr-2">
+		<h2>
+			<center>View all your Transactions Details for the Account</center>
 		</h2>
 
-		<div class="mb-3">
-			<div>
-				<div class="mb-3">
-					<b>Account Number:</b> CA000${account.idaccounts}000IN <br />
-				</div>
-				<div class="mb-3">
-					<b>Account Balance:</b> $${account.balance}
-				</div>
-			</div>
-			<div>
-				<a href="TransferDifferentAccount/${account.idaccounts}"
-					class="btn btn-info">Transfer Money to different account of
-					yours (withdraw)</a> <a
-					href="DepositToSameAccount/${account.idaccounts}"
-					class="btn btn-info">Deposit money in the same account of yours</a>
-					<a href="ViewAllTransactions/${account.idaccounts}" class="btn btn-info"> View All Transactions for the Account </a>
-			</div>
+		<div class="mt-5">
+
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">#Transaction Code</th>
+						<th scope="col">Sender Account Number</th>
+						<th scope="col">Payed for Utility?</th>
+						<th scope="col">Transaction Date</th>
+						<th scope="col">Receiver Account Number</th>
+						<th scope="col">Transaction Amount</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="transaction" items="${transactions}">
+						<tr>
+							<td scope="row">BANK000${transaction.idtransactions}-700-CA00</td>
+							<td>CA000${transaction.senderAccountId}000IN</td>
+
+							<td><c:if test="${transaction.idutilities > 1}">
+								<span class="text-success">Yes</span>
+							</c:if> <c:if test="${transaction.idutilities == 0}">
+								<span class="text-danger">No</span>
+							</c:if></td>
+							<td>${transaction.transactionDate}</td>
+							<td>CA000${transaction.receiverAccountId}000IN</td>
+							<td>$${transaction.transactionsAmount}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
 		</div>
 	</div>
-
 </body>
 </html>

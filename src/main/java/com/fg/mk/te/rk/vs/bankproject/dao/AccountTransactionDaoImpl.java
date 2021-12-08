@@ -267,4 +267,21 @@ public class AccountTransactionDaoImpl implements AccountTransactionDao  {
 			}
 		}); 
 	}
+	
+	public List<TransactionClass_A> getListAllTransactions (int accountId) {
+		String sql="select * from transactions t where t.senderAccountId =  "+ accountId +"  or t.receiverAccountId = " + accountId + ";";
+		return template.query(sql, new RowMapper<TransactionClass_A>(){ 
+
+			public TransactionClass_A mapRow(ResultSet rs, int row) throws SQLException {  
+				TransactionClass_A e = new TransactionClass_A();  
+				e.setIdtransactions(rs.getInt(1));
+				e.setSenderAccountId(rs.getInt(2));
+				e.setTransactionDate(rs.getString(3));
+				e.setIdutilities(rs.getInt(4));
+				e.setReceiverAccountId(rs.getInt(5));
+				e.setTransactionsAmount(rs.getDouble(6));
+				return e;
+			}
+		}); 
+	}
 }

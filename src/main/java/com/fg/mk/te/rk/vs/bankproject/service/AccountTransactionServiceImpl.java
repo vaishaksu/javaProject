@@ -135,4 +135,9 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
 		// TODO Auto-generated method stub
 		return accountTransactionDao.getListAllYourAccounts(uname);
 	}
+
+	public List<TransactionClass_A> getListAllTransactions(int accountId) {
+		// TODO Auto-generated method stub
+		return accountTransactionDao.getListAllTransactions(accountId);
+	}
 }

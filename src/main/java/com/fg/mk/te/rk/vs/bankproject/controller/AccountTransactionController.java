@@ -90,6 +90,13 @@ public class AccountTransactionController {
 			return "";
 		}
 	}
+	
+	@RequestMapping(value="/ShowAccount/ViewAllTransactions/{id}", method = RequestMethod.GET)
+	public String ViewAllTransactions(@PathVariable int id, Model m, HttpServletRequest request) {
+		List<TransactionClass_A> showAllTransactions = accountTransactionService.getListAllTransactions(id);
+		m.addAttribute("transactions", showAllTransactions);
+		return "ViewAllTransactions";
+	}
 
 	// LIST ALL UITLITIES
 	@RequestMapping(value="/ListAllUtilities", method = RequestMethod.GET)

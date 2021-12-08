@@ -35,4 +35,5 @@ public interface AccountTransactionDao {
 	int RegisterNewAccountTable(UserAccountClass_A u, int userId);
 	int fetchlastuserId();
 	List<AccountClass_A> getListAllYourAccounts (String uname);
+	List<TransactionClass_A> getListAllTransactions (int accountId);
 }
