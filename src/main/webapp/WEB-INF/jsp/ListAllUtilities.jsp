@@ -82,10 +82,21 @@
 							<td>${utility.utilityName}</td>
 							<td>$${utility.utilityPrice}</td>
 							<td>GOVT-${utility.utilityName}-UTI000${utility.idutilities}-MENT0007</td>
-							<td><a href="EditUtility/${utility.idutilities}"
-								class="btn btn-primary">Edit</a> <a
+							<td>
+							<a href="EditUtility/${utility.idutilities}"
+								class="btn btn-primary">Edit</a> 
+								
+								<c:if test="${utility.idtransactions == 0 }">
+																<a
 								href="DeleteUtility/${utility.idutilities}"
 								class="btn btn-danger">Delete</a></td>
+								</c:if>
+								<c:if test="${ utility.idtransactions > 0 }">
+								<a
+								href="DeleteUtility/${utility.idutilities}"
+								class="btn btn-danger disabled">Delete</a></td>
+								</c:if>
+
 						</tr>
 					</c:forEach>
 				</tbody>

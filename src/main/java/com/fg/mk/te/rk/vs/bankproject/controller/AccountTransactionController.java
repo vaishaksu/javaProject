@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fg.mk.te.rk.vs.bankproject.beans.AccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.TransactionClass_A;
+import com.fg.mk.te.rk.vs.bankproject.beans.TransactionUtilitiesClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserAccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UtilityClass_A;
@@ -94,7 +95,8 @@ public class AccountTransactionController {
 	@RequestMapping(value="/ListAllUtilities", method = RequestMethod.GET)
 	public String ListAllUtilities(Model m, HttpServletRequest request) {
 		System.out.println("***********************");
-		List<UtilityClass_A> accounts = accountTransactionService.getListAllUtilities();
+		List<TransactionUtilitiesClass_A> accounts = accountTransactionService.getListAllUtilities();
+		System.out.println("accounts: " + accounts.get(4).idtransactions);
 		m.addAttribute("listUtilities", accounts);
 		return "ListAllUtilities";
 	}
@@ -151,6 +153,7 @@ public class AccountTransactionController {
 	@RequestMapping(value = "/DeleteUtility/{id}", method = RequestMethod.GET)
 	public String DeleteUtility(@PathVariable int id, HttpServletRequest request) {
 		//		System.out.println("IMPLEME ******: REGISTER" + newuser.getUsername());
+//		deleteTransactionBeforeUtility
 		int delete = accountTransactionService.deleteUtilityDB(id);
 		System.out.println("userupdate: " + delete);
 		if(delete != 0) { // SUCCESS

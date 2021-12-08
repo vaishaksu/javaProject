@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.fg.mk.te.rk.vs.bankproject.beans.AccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.TransactionClass_A;
+import com.fg.mk.te.rk.vs.bankproject.beans.TransactionUtilitiesClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserAccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UtilityClass_A;
@@ -41,7 +42,7 @@ public class AccountTransactionServiceImpl implements AccountTransactionService 
 		return accountTransactionDao.updateDepositSameAccount(t);
 	}
 
-	public List<UtilityClass_A> getListAllUtilities() {
+	public List<TransactionUtilitiesClass_A> getListAllUtilities() {
 		// TODO Auto-generated method stub
 		return accountTransactionDao.getListAllUtilities();
 	}

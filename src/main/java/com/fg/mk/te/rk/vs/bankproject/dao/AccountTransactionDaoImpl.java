@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.fg.mk.te.rk.vs.bankproject.beans.AccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.TransactionClass_A;
+import com.fg.mk.te.rk.vs.bankproject.beans.TransactionUtilitiesClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserAccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UtilityClass_A;
@@ -99,15 +100,17 @@ public class AccountTransactionDaoImpl implements AccountTransactionDao  {
 		return template.update(sql);  
 	}
 
-	public List<UtilityClass_A> getListAllUtilities() {
-		String sql = "select * from utilities"; // JOIN Query
-		return template.query(sql, new RowMapper<UtilityClass_A>(){ 
+	public List<TransactionUtilitiesClass_A> getListAllUtilities() {
+//		String sql = "select * from utilities"; // JOIN Query
+		String sql = "select * from utilities u left join transactions t on u.idutilities = t.idutilities group by u.idutilities;";
+		return template.query(sql, new RowMapper<TransactionUtilitiesClass_A>(){ 
 
-			public UtilityClass_A mapRow(ResultSet rs, int row) throws SQLException {  
-				UtilityClass_A e = new UtilityClass_A();  
+			public TransactionUtilitiesClass_A mapRow(ResultSet rs, int row) throws SQLException {  
+				TransactionUtilitiesClass_A e = new TransactionUtilitiesClass_A();  
 				e.setIdutilities(rs.getInt(1));
 				e.setUtilityName(rs.getString(2));
 				e.setUtilityPrice(rs.getDouble(3));
+				e.setIdtransactions(rs.getInt(4));
 				return e;
 			}
 		}); 
@@ -130,7 +133,7 @@ public class AccountTransactionDaoImpl implements AccountTransactionDao  {
 		System.out.println("3: ==== " + p.getIdutilities());
 		String sql="update utilities set utilityName='"+p.getUtilityName()+"', utilityPrice= " +p.getUtilityPrice()+ " where idutilities=" +p.getIdutilities()+ "";  
 		return template.update(sql);  
-	}  
+	}
 
 	public int deleteUtilityDB(int id){  
 		String sql="delete from utilities where idutilities="+id+"";  

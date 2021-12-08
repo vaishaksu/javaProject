@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.fg.mk.te.rk.vs.bankproject.beans.AccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.TransactionClass_A;
+import com.fg.mk.te.rk.vs.bankproject.beans.TransactionUtilitiesClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserAccountClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UserClass_A;
 import com.fg.mk.te.rk.vs.bankproject.beans.UtilityClass_A;
@@ -16,7 +17,7 @@ public interface AccountTransactionService {
 	int UpdateAccount(TransactionClass_A t);
 	int depositSameAccount(TransactionClass_A p, String idUtilityPresent);
 	int updateDepositSameAccount(TransactionClass_A t);
-	List<UtilityClass_A> getListAllUtilities();
+	List<TransactionUtilitiesClass_A> getListAllUtilities();
 	int AddUtilityDB(UtilityClass_A p);
 	UtilityClass_A getUtilityByIdDB(int id);
 	int updateUtilityDB(UtilityClass_A p);
